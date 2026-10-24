@@ -4,8 +4,7 @@ pandora is the Xiaomi 17 Pro with the SM8850 SoC. The port below is an independe
 
 | Repository | Maintainer | State |
 | --- | --- | --- |
-| [ios-pandora](https://github.com/ShueiTsuki/ios-pandora) | [ShueiTsuki](https://github.com/ShueiTsuki) | iOS 16.7.16 home screen with touch and buttons on hardware; GPU kernel driver runs command buffers |
-| [data-a-live](https://github.com/ShueiTsuki/data-a-live) | [ShueiTsuki](https://github.com/ShueiTsuki) | Native iOS 16 project with a self-built XNU kernel |
+| [Data A Live](https://github.com/ShueiTsuki/data-a-live) (formerly ios-pandora) | [ShueiTsuki](https://github.com/ShueiTsuki) | iOS 16.7.16 home screen with touch and buttons on hardware; the system UI is composited on the Adreno 840 GPU |
 
 ## State
 
@@ -16,9 +15,9 @@ pandora is the Xiaomi 17 Pro with the SM8850 SoC. The port below is an independe
 | Storage | native UFS driver; the root file system is a pinned file in the Android userdata partition, read and written through its extents, without a wipe |
 | Display | 1220x2656 panel through the bootloader framebuffer; brightness through DSI DCS |
 | Input | Synaptics touch over GPI DMA; power and volume buttons |
-| Userland | iOS 16.7.16 (20H392) home screen, wallpaper and widgets; CPU rendering, so blur and the App Library draw wrong |
+| Userland | iOS 16.7.16 (20H392) home screen, wallpaper and widgets; with GPU composition blur draws correctly, the App Library background still draws wrong; without it the CPU renders and blur draws wrong |
 | Original kexts | AMFI and its dependencies prelinked with NativePrelink and running on hardware |
-| GPU | Adreno 840 kernel driver on hardware: GMU cold start and HFI, GX power, GPU SMMU context, CP with SQE and the zap shader; indirect buffers run and fences complete on both BR and BV; a user client with the NativeAdreno ABI is registered and passes a kernel self-test and a user-space test program on hardware; no rendering yet |
+| GPU | Adreno 840 kernel driver (GMU and HFI, GX power, GPU SMMU context, CP with SQE and the zap shader) with a NativeAdreno ABI v1 user client; Mesa Turnip and the NativeMetal plugin (metal2vulkan) run on it, and backboardd composites the system UI through Metal at 60 fps (boot-arg `pandora_gpu_metal=1`); frequency scaling from the GMU busy counter; up to 128 indirect buffers per submission. Some IOSurface layouts are still refused |
 | Audio, camera | not available |
 
 ## Build

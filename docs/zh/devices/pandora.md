@@ -4,8 +4,7 @@ pandora 是搭载 SM8850 的小米 17 Pro。下面的移植是独立的社区项
 
 | 仓库 | 维护者 | 状态 |
 | --- | --- | --- |
-| [ios-pandora](https://github.com/ShueiTsuki/ios-pandora) | [ShueiTsuki](https://github.com/ShueiTsuki) | 已在真机到达 iOS 16.7.16 主屏幕，触控和按键可用；GPU 内核驱动可执行命令缓冲 |
-| [data-a-live](https://github.com/ShueiTsuki/data-a-live) | [ShueiTsuki](https://github.com/ShueiTsuki) | 使用自建 XNU 内核的原生 iOS 16 项目 |
+| [Data A Live](https://github.com/ShueiTsuki/data-a-live)（原 ios-pandora） | [ShueiTsuki](https://github.com/ShueiTsuki) | 已在真机到达 iOS 16.7.16 主屏幕，触控和按键可用；系统界面由 Adreno 840 GPU 合成 |
 
 ## 状态
 
@@ -16,9 +15,9 @@ pandora 是搭载 SM8850 的小米 17 Pro。下面的移植是独立的社区项
 | 存储 | 原生 UFS 驱动；根文件系统是 Android userdata 分区中的固定文件，按其 extent 读写，无需清除数据 |
 | 显示 | 1220x2656 面板，使用引导程序的帧缓冲；亮度通过 DSI DCS 调节 |
 | 输入 | Synaptics 触控走 GPI DMA；电源键和音量键 |
-| 用户态 | iOS 16.7.16（20H392）主屏幕，壁纸和小组件正常；CPU 渲染，模糊效果和资源库显示不正确 |
+| 用户态 | iOS 16.7.16（20H392）主屏幕，壁纸和小组件正常；用 GPU 合成时模糊效果正确，资源库背景仍显示不正确；不用 GPU 时由 CPU 渲染，模糊效果不正确 |
 | 原版 kext | AMFI 及其依赖用 NativePrelink 预链接，已在真机运行 |
-| GPU | Adreno 840 内核驱动已在真机运行：GMU 冷启动和 HFI、GX 供电、GPU SMMU 上下文、带 SQE 和 zap shader 的 CP；间接缓冲可执行，BR 和 BV 上的 fence 均能完成；采用 NativeAdreno ABI 的 user client 已注册，并在真机通过内核自测和用户态测试程序；尚未渲染 |
+| GPU | Adreno 840 内核驱动（GMU 和 HFI、GX 供电、GPU SMMU 上下文、带 SQE 和 zap shader 的 CP），提供 NativeAdreno ABI v1 的 user client；Mesa Turnip 和 NativeMetal 插件（metal2vulkan）在其上运行，backboardd 通过 Metal 以 60 帧合成系统界面（启动参数 `pandora_gpu_metal=1`）；按 GMU 忙碌计数器调频；每次提交最多 128 个间接缓冲。部分 IOSurface 布局仍被拒绝 |
 | 音频、相机 | 不可用 |
 
 ## 构建

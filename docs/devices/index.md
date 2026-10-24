@@ -18,7 +18,7 @@ The ports listed here are independent. Their maintainers own the repositories; t
 | [Galaxy Tab S7 FE Wi-Fi (SM-T733)](/devices/sm-t733) | SM7325 | iPadOS desktop, UFS and Data on hardware; GPU and Wi-Fi pending | RigoLigoRLC |
 | [OnePlus 10 Pro 5G (negroni)](/devices/negroni) | SM8450 | iOS 16.7.16 SpringBoard with touch; CPU-rendered; Wi-Fi pending | pawlickerr |
 | [Nothing Phone (2) (pong)](/devices/pong) | SM8475 | iOS 16.6.1 home screen with display and touch; UFS and GPU partial | Chengdong-Yu |
-| [Xiaomi 17 Pro (pandora)](/devices/pandora) | SM8850 | iOS 16.7.16 home screen with touch and buttons; GPU kernel driver runs command buffers, no rendering yet; own loader, no UEFI chain | ShueiTsuki |
+| [Xiaomi 17 Pro (pandora)](/devices/pandora) | SM8850 | iOS 16.7.16 home screen with touch and buttons; the system UI is composited on the Adreno 840 GPU; own loader, no UEFI chain | ShueiTsuki |
 | [Xiaomi Mi 8 SE (sirius)](/devices/sirius) | SDM710 | XNU entry and platform expert via U-Boot UEFI; IOKit in progress | 57UU |
 | [Xiaomi 13 (fuxi)](/devices/fuxi) | SM8550 | Kernel links and prelinks; stage B archive chain near complete; no hardware run | matejkoo217, hanzi123-bilp |
 | [OnePlus 7 Pro (guacamole)](/devices/guacamole) | SM8150 | iOS 16.7.16 userland reached; GPU pending | wochgn |

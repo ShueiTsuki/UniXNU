@@ -18,7 +18,7 @@
 | [Galaxy Tab S7 FE Wi-Fi（SM-T733）](/zh/devices/sm-t733) | SM7325 | 真机 iPadOS 桌面、UFS 和 Data；GPU 和 Wi-Fi 待完成 | RigoLigoRLC |
 | [一加 10 Pro 5G（negroni）](/zh/devices/negroni) | SM8450 | 已到 iOS 16.7.16 SpringBoard，触控可用；CPU 渲染；Wi-Fi 待完成 | pawlickerr |
 | [Nothing Phone (2)（pong）](/zh/devices/pong) | SM8475 | 已到 iOS 16.6.1 主屏幕，显示和触控可用；UFS 和 GPU 部分可用 | Chengdong-Yu |
-| [小米 17 Pro（pandora）](/zh/devices/pandora) | SM8850 | 已到 iOS 16.7.16 主屏幕，触控和按键可用；GPU 内核驱动可执行命令缓冲，尚未渲染；自有加载器，不经 UEFI 链 | ShueiTsuki |
+| [小米 17 Pro（pandora）](/zh/devices/pandora) | SM8850 | 已到 iOS 16.7.16 主屏幕，触控和按键可用；系统界面由 Adreno 840 GPU 合成；自有加载器，不经 UEFI 链 | ShueiTsuki |
 | [小米 8 SE（sirius）](/zh/devices/sirius) | SDM710 | 通过 U-Boot UEFI 到达 XNU 入口和平台专家；IOKit 进行中 | 57UU |
 | [小米 13（fuxi）](/zh/devices/fuxi) | SM8550 | 内核可链接和预链接，阶段 B archive 链接近完成，未在真机运行 | matejkoo217、hanzi123-bilp |
 | [一加 7 Pro（guacamole）](/zh/devices/guacamole) | SM8150 | 已到达 iOS 16.7.16 用户态，GPU 待完成 | wochgn |
